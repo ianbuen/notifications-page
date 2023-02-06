@@ -10,6 +10,7 @@ const getUser = (name) => {
     let user = { 'name': name };
     name = name.replace(' ', '-').toLowerCase();
     user.avatar = images.filter(image => image.includes(name))[0];
+    return user;
 };
 
 // ---------------------------------------
@@ -20,10 +21,10 @@ export const data = [
     {
         type: 'react',
         from: getUser("Mark Webber"),
-        subject: '',
-        text: 'reacted to your recent post My first tournament today!',
+        subject: 'My first tournament today!',
+        text: 'reacted to your recent post',
         time: '1m ago',
-        read: true
+        unread: true
     },
     
     {
@@ -32,16 +33,16 @@ export const data = [
         subject: '',
         text: 'followed you',
         time: '5m ago',
-        read: true
+        unread: true
     },
     
     {
         type: 'group',
         from: getUser("Jacob Thompson"),
-        subject: '',
-        text: 'has joined your group Chess Club',
+        subject: 'Chess Club',
+        text: 'has joined your group',
         time: '1 day ago',
-        read: true
+        unread: true
     },
     
     {
@@ -51,16 +52,16 @@ export const data = [
         text: 'sent you a private message',
         content: "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
         time: '5 days ago',
-        read: false
+        unread: false
     },
     
     {
-        type: 'comment',
+        type: 'photo',
         from: getUser("Kimberly Smith"),
         subject: '',
         text: 'commented on your picture',
         time: '1 week ago',
-        read: false
+        unread: false
     },
     
     {
@@ -69,7 +70,7 @@ export const data = [
         subject: '5 end-game strategies to increase your win rate',
         text: 'reacted to your recent post',
         time: '2 weeks ago',
-        read: false
+        unread: false
     },
     
     {
@@ -78,7 +79,7 @@ export const data = [
         subject: 'Chess Club',
         text: 'left the group',
         time: '2 weeks ago',
-        read: false
+        unread: false
     }    
 ];
 
