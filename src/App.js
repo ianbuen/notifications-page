@@ -9,8 +9,8 @@ function App() {
 
       <footer>
         <div className="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="https://www.frontendmentor.io/profile/ianbuen">@ianbuen</a>.
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
+          Coded by <a href="https://www.frontendmentor.io/profile/ianbuen" target="_blank" rel="noreferrer">@ianbuen</a>.
         </div>
       </footer>
     </div>
