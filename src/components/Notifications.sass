@@ -40,26 +40,50 @@ input
 
 //////// SASS RESET END /////////
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap')
+
 $blue: hsl(219, 85%, 26%)
 $red: hsl(1, 90%, 64%)
 
-*
-    // outline: 1px solid red !important
+@mixin hover
+    &:hover
+        color: $blue
+        cursor: pointer
+
+@mixin rwd
+    @media only screen and (min-width: 620px)
+        @content
 
 html, body, #root, .App
     width: 100%
 
 html
-    font-family: 'Plus Jakarta Sans', sans-serif
     font-size: 16px
 
+body
+    font-family: 'Plus Jakarta Sans', sans-serif
+    background: hsl(210, 60%, 98%)
+    
+.App
+    display: grid
+    place-items: center
+    @include rwd
+        padding-top: 5vmax
+
+main
+    @include rwd
+        background: white
+        max-width: 620px
+        place-self: center
+        border-radius: 15px
+        padding: 0 1rem
+        box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.02)
 
 .notifications
     display: grid
     grid-template-columns: 1fr 1fr
     row-gap: 10px
-    min-height: 100vh
-    padding: 1rem
+    padding: 1rem 
 
     h1, p
         width: fit-content
@@ -67,14 +91,26 @@ html
     h1
         grid-column: 1
         font-weight: 800
-        font-size: 1.4rem
+        font-size: 1.3rem
         margin: 1rem 0
+
+        span
+            color: white
+            background: $blue
+            padding: 2px 10px
+            border-radius: 6px
+            font-size: 1.15rem
+            position: relative
+            bottom: 3px
+            left: 5px
+
     > p
         grid-column: 2
         justify-self: end
         font-size: 0.9rem
         color: hsl(219, 12%, 42%)
         font-weight: 500
+        @include hover
 
 .notification
     display: grid
@@ -84,40 +120,63 @@ html
     padding: 1rem
     border-radius: 5px
     font-size: 0.9rem
+    
+    @include rwd
+        height: fit-content
 
     img
         grid-column: 1
-        width: 50px
+        width: 2.5rem
 
 .notif-body
     grid-column: 2
 
+    @include rwd
+        height: fit-content
+
     p
         display: inline
         margin-right: 0.3rem
-        line-height: 1.5
-        font-weight: 800
+        line-height: 1.25
+        color: hsl(219, 12%, 42%)
+
+        &:nth-of-type(1)
+            color: black
+            font-weight: 800
+            @include hover
 
         &:nth-of-type(2)
-            font-weight: normal
-            opacity: 0.8
-
-    .group
-        color: $blue
+            font-weight: 400
+            pointer-events: none
+        
+    .subject
+        @include hover
+        font-weight: 600
 
     .time
         display: block
         font-weight: normal
         color: hsl(219, 14%, 63%)
+        margin: 5px 0 
 
     .content
         display: block
         font-weight: normal
         padding: 10px
         margin-top: 10px
-        border: 1px solid hsl(219, 14%, 63%)
+        border: 1px solid hsl(205, 33%, 90%)
         border-radius: 5px
-        opacity: 0.7
+        font-weight: 500
+
+        &:hover
+            background: hsl(211, 68%, 94%)
+            cursor: pointer
+
+    .preview
+        float: right
+        width: 2.5rem
+        margin: 0 5px
+        @include hover
 
 .unread
     background: hsla(211, 68%, 94%, 0.4)
@@ -125,10 +184,12 @@ html
     span
         display: inline-block
         background: $red
-        height: 0.4rem
-        width: 0.4rem
+        height: 0.5rem
+        width: 0.5rem
         content: ''
         border-radius: 50%
+        position: relative
+        bottom: 2px
 
 footer
     padding: 1.5rem 0

@@ -1,4 +1,6 @@
-// dynamically import assets from a dir
+import chess from "./images/image-chess.webp";
+
+// dynamically import other assets from a dir
 
 const loadImages = (images) => {
     return images.keys().map(images);
@@ -57,6 +59,7 @@ export const data = [
     
     {
         type: 'photo',
+        preview: chess,
         from: getUser("Kimberly Smith"),
         subject: '',
         text: 'commented on your picture',
